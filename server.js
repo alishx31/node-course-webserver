@@ -7,14 +7,9 @@ var app =express();
 app.set('view engine','hbs');
 app.use(express.static(__dirname + '/public'));
 
-app.use((req,res)=>{
+
     
-res.render('maintanence.hbs',{
-    title: 'page is under maintanence proceess visit back soon',
 
-
-});
-});
 
 // app.get('/', (req, res)=>{
 // //res.send('<h1>Hello Express</h1>');
@@ -42,8 +37,23 @@ res.render('About.hbs',{
 });
 });
 
+app.get('/project', (req,res)=>{
+    res.render('project.hbs',{
+        pagetiTLE:'This page shows portfolios',
+        
+    });
+    });
+
 hbs.registerHelper('getCurrentYear', ()=>{
 return new Date().getFullYear();
+});
+
+app.use((req,res)=>{
+res.render('maintanence.hbs',{
+    title: 'page is under maintanence proceess visit back soon',
+
+
+});
 });
 
 app.get('/bad',(req, res)=>{
